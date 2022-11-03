@@ -13,7 +13,7 @@ public class ConnectionFactory {
         ComboPooledDataSource comboPool = new ComboPooledDataSource();
 
         //Se for banco MariaDB usar esse.
-        comboPool.setJdbcUrl("jdbc:mariadb://localhost/petshop_crud?useTimezone=true&serverTimezone=UTC");
+        comboPool.setJdbcUrl("jdbc:mariadb://localhost/petshop_db?useTimezone=true&serverTimezone=UTC");
 
         //Se for Mysql usar esse
         //comboPool.setJdbcUrl("jdbc:mysql://localhost/petshop_crud?useTimezone=true&serverTimezone=UTC");
@@ -31,11 +31,11 @@ public class ConnectionFactory {
 
     public Connection recoveryConnection(){
         try{
+            System.out.println("Sucess Get Connection");
             return this.dataSource.getConnection();
         } catch (SQLException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
 }
-
