@@ -9,6 +9,23 @@ public class Cliente {
     private String endereco;
     private String telefone;
 
+
+
+
+    public Cliente(Integer id, String nome, String sobrenome, String cpf, String endereco, String telefone){
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.telefone = telefone;
+    }
+
+    public Cliente (){}
+
+
+
+
     public Integer getId() {
         return id;
     }
@@ -55,5 +72,10 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + "\tNOME: " + nome + "\tSOBRENOME: " + sobrenome + "\tCPF: " + cpf + "\tENDERECO: " + endereco + "\tTELEFONE: " + telefone;
     }
 }
