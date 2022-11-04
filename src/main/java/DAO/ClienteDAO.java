@@ -42,6 +42,27 @@ public class ClienteDAO {
         }
     }
 
+    public void salvar(Cliente cliente){
+        String sql = "INSERT INTO tbcliente (nome, sobrenome, cpf, endereco, telefone) VALUES (?,?,?,?,?)";
+
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(2, cliente.getSobrenome());
+            preparedStatement.setString(3, cliente.getCpf());
+            preparedStatement.setString(4, cliente.getEndereco());
+            preparedStatement.setString(5, cliente.getTelefone());
+
+            preparedStatement.execute();
+            System.out.println("Salvo com sucesso!");
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
