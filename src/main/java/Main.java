@@ -16,9 +16,9 @@ public class Main {
         ClienteDAO clienteDAO = new ClienteDAO(connection);
 
         Cliente cliente = new Cliente();
-        cliente.setNome("Jonny");
-        cliente.setSobrenome("Blaize");
-        cliente.setCpf("12345678912");
+        cliente.setNome("João");
+        cliente.setSobrenome("Felipe");
+        cliente.setCpf("12345678914");
         cliente.setEndereco("Rua olivia marcos Barbacena - MG");
         cliente.setTelefone("31798702147");
 
@@ -27,7 +27,10 @@ public class Main {
         //clienteDAO.alterar(6, "Carlinho", "Sacana", "12345678912", "Rua berlim", "78457802144");
 
         //clienteDAO.buscar(3);
-        clienteDAO.buscar("12345678911");
+        //clienteDAO.buscar("12345678911");
+        //List<Cliente> buscarClienteNomes = clienteDAO.buscarPorNome("joão");
+        //buscarClienteNomes.forEach(nomeCliente -> System.out.println(nomeCliente));
+
 
         //List<Cliente> listarTodosClientes = clienteDAO.listar();
         //listarTodosClientes.forEach(c -> System.out.println(c));

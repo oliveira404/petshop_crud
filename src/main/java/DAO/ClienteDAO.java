@@ -131,4 +131,32 @@ public class ClienteDAO {
         }
     }
 
+    public List<Cliente> buscarPorNome(String nome){
+        List<Cliente> listaNomes = new ArrayList<Cliente>();
+        String sql = "SELECT * FROM tbcliente WHERE nome = ?";
+
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, nome);
+            preparedStatement.execute();
+
+            try(ResultSet resultSet = preparedStatement.getResultSet()) {
+                while(resultSet.next()){
+                    Cliente cliente = new Cliente(
+                            resultSet.getInt(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getString(5),
+                            resultSet.getString(6)
+                    );
+                    listaNomes.add(cliente);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaNomes;
+    }
+
+
 }
