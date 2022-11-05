@@ -81,4 +81,54 @@ public class ClienteDAO {
         }
     }
 
+    public void buscar(Integer id){
+        String sql = "SELECT * FROM tbcliente WHERE id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+
+            try(ResultSet resultSet = preparedStatement.getResultSet()){
+                while(resultSet.next()){
+                    Cliente cliente = new Cliente(
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+                    );
+                    System.out.println(cliente);
+                }
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void buscar(String cpf){
+        String sql = "SELECT * FROM tbcliente WHERE cpf = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, cpf);
+            preparedStatement.execute();
+
+            try(ResultSet resultSet = preparedStatement.getResultSet()){
+                while (resultSet.next()){
+                    Cliente cliente = new Cliente(
+                            resultSet.getInt(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getString(5),
+                            resultSet.getString(6)
+                    );
+                    System.out.println(cliente);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

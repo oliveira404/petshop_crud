@@ -24,10 +24,13 @@ public class Main {
 
         //clienteDAO.salvar(cliente);
 
-        clienteDAO.alterar(6, "Carlinho", "Sacana", "12345678912", "Rua berlim", "78457802144");
+        //clienteDAO.alterar(6, "Carlinho", "Sacana", "12345678912", "Rua berlim", "78457802144");
 
-        List<Cliente> listarTodosClientes = clienteDAO.listar();
-        listarTodosClientes.forEach(c -> System.out.println(c));
+        //clienteDAO.buscar(3);
+        clienteDAO.buscar("12345678911");
+
+        //List<Cliente> listarTodosClientes = clienteDAO.listar();
+        //listarTodosClientes.forEach(c -> System.out.println(c));
 
     }
 }
