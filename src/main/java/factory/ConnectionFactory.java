@@ -16,7 +16,7 @@ public class ConnectionFactory {
         comboPool.setJdbcUrl("jdbc:mariadb://localhost/petshop_db?useTimezone=true&serverTimezone=UTC");
 
         //Se for Mysql usar esse
-        //comboPool.setJdbcUrl("jdbc:mysql://localhost/petshop_crud?useTimezone=true&serverTimezone=UTC");
+        //comboPool.setJdbcUrl("jdbc:mysql://localhost/petshop_db?useTimezone=true&serverTimezone=UTC");
 
         //login e senha do seu banco de dados
         comboPool.setUser("igor");
