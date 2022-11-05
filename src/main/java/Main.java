@@ -3,11 +3,12 @@ import factory.ConnectionFactory;
 import model.Cliente;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection connection = connectionFactory.recoveryConnection();
@@ -31,9 +32,11 @@ public class Main {
         //List<Cliente> buscarClienteNomes = clienteDAO.buscarPorNome("joão");
         //buscarClienteNomes.forEach(nomeCliente -> System.out.println(nomeCliente));
 
+        //clienteDAO.deletar(6);
+        //clienteDAO.deletar("12345678910");
 
-        //List<Cliente> listarTodosClientes = clienteDAO.listar();
-        //listarTodosClientes.forEach(c -> System.out.println(c));
+        List<Cliente> listarTodosClientes = clienteDAO.listar();
+        listarTodosClientes.forEach(c -> System.out.println(c));
 
     }
 }

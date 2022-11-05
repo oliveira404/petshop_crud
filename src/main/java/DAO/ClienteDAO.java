@@ -65,7 +65,7 @@ public class ClienteDAO {
         }
     }
 
-    public void alterar (Integer id, String nome, String sobrenome, String cpf, String endereco, String telefone){
+    public void alterar (Integer id, String nome, String sobrenome, String cpf, String endereco, String telefone) throws SQLException {
         String sql = "UPDATE tbcliente c SET c.nome = ?, c.sobrenome = ?, c.cpf = ?, c.endereco = ?, c.telefone = ? WHERE id = ?";
         try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
             preparedStatement.setString(1, nome);
@@ -77,6 +77,7 @@ public class ClienteDAO {
 
             preparedStatement.execute();
         } catch (SQLException e) {
+            connection.rollback();
             throw new RuntimeException(e);
         }
     }
@@ -158,5 +159,27 @@ public class ClienteDAO {
         return listaNomes;
     }
 
+    public void deletar(Integer id) throws SQLException {
+        String sql = "DELETE FROM tbcliente WHERE id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            connection.rollback();
+            throw new RuntimeException(e);
+
+        }
+    }
+
+    public void deletar(String cpf) throws SQLException {
+        String sql = "DELETE FROM tbcliente WHERE cpf = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, cpf);
+            preparedStatement.execute();
+        } catch (SQLException e){
+            connection.rollback();
+            throw new RuntimeException();
+        }
+    }
 
 }
