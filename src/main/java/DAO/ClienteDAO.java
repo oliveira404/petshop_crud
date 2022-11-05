@@ -12,6 +12,7 @@ import java.util.List;
 public class ClienteDAO {
     private Connection connection;
 
+
     public ClienteDAO(Connection connection){
         this.connection = connection;
     }
@@ -64,6 +65,20 @@ public class ClienteDAO {
         }
     }
 
+    public void alterar (Integer id, String nome, String sobrenome, String cpf, String endereco, String telefone){
+        String sql = "UPDATE tbcliente c SET c.nome = ?, c.sobrenome = ?, c.cpf = ?, c.endereco = ?, c.telefone = ? WHERE id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, nome);
+            preparedStatement.setString(2, sobrenome);
+            preparedStatement.setString(3, cpf);
+            preparedStatement.setString(4, endereco);
+            preparedStatement.setString(5, telefone);
+            preparedStatement.setInt(6, id);
 
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
