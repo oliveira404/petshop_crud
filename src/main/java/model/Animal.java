@@ -8,6 +8,20 @@ public class Animal {
     private Integer idade;
     private Integer fkCliente;
 
+
+    public Animal(Integer id, String nome, String animal, String raca, Integer idade, Integer fkCliente) {
+        this.id = id;
+        this.nome = nome;
+        this.animal = animal;
+        this.raca = raca;
+        this.idade = idade;
+        this.fkCliente = fkCliente;
+    }
+
+    public Animal() {
+
+    }
+
     public Integer getId() {
         return id;
     }
@@ -54,5 +68,10 @@ public class Animal {
 
     public void setFkCliente(Integer fkCliente) {
         this.fkCliente = fkCliente;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + " NOME: " + nome + " ANIMAL " + animal + " RAÇA " + raca + " IDADE: " + idade + " ID_CLIENTE: " + fkCliente;
     }
 }
