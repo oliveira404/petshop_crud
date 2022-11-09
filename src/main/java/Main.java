@@ -31,10 +31,11 @@ public class Main {
         animal.setAnimal("Peixe");
         animal.setRaca("Golden Fish");
         animal.setIdade(1);
-        animal.setFkCliente(1);
+        animal.setFkCliente(2);
 
 
         //clienteDAO.salvar(cliente);
+        animalDAO.salvar(animal);
 
         //clienteDAO.alterar(6, "Carlinho", "Sacana", "12345678912", "Rua berlim", "78457802144");
 

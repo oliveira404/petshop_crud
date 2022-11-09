@@ -42,4 +42,24 @@ public class AnimalDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public void salvar(Animal animal){
+        String sql = "INSERT INTO tbanimal (nome, animal, raca, idade, fk_cliente) VALUES (?,?,?,?,?)";
+
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, animal.getNome());
+            preparedStatement.setString(2, animal.getAnimal());
+            preparedStatement.setString(3, animal.getRaca());
+            preparedStatement.setInt(4, animal.getIdade());
+            preparedStatement.setInt(5, animal.getFkCliente());
+
+            preparedStatement.execute();
+        } catch (SQLException e){
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+    }
 }
