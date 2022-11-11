@@ -35,9 +35,10 @@ public class Main {
 
 
         //clienteDAO.salvar(cliente);
-        animalDAO.salvar(animal);
+        //animalDAO.salvar(animal);
 
         //clienteDAO.alterar(6, "Carlinho", "Sacana", "12345678912", "Rua berlim", "78457802144");
+        //animalDAO.alterar(1, "miguel", "cavalo", "lobato", 12, 1);
 
         //clienteDAO.buscar(3);
         //clienteDAO.buscar("12345678911");

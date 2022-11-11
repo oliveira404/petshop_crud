@@ -62,4 +62,26 @@ public class AnimalDAO {
             }
         }
     }
+
+    public void alterar(Integer id, String nome, String animal, String raca, Integer idade, Integer fk_cliente){
+        String sql = "UPDATE tbanimal SET nome = ?, animal = ?, raca = ?, idade = ?, fk_cliente = ? WHERE id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, nome);
+            preparedStatement.setString(2, animal);
+            preparedStatement.setString(3, raca);
+            preparedStatement.setInt(4, idade);
+            preparedStatement.setInt(5, fk_cliente);
+            preparedStatement.setInt(6, id);
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            throw new RuntimeException(e);
+        }
+    }
 }
