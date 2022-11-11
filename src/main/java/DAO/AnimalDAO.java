@@ -84,4 +84,33 @@ public class AnimalDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public void buscar(Integer id){
+        String sql = "SELECT * FROM tbanimal WHERE id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+
+            try(ResultSet resultSet = preparedStatement.getResultSet()){
+                while(resultSet.next()){
+                    Animal animal = new Animal(
+                            resultSet.getInt(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getInt(5),
+                            resultSet.getInt(6)
+                    );
+                    System.out.println(animal);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Animal> buscarAnimalNome (String nome){
+        List<Animal> listaNomesAnimais = new ArrayList<Animal>();
+
+    }
 }

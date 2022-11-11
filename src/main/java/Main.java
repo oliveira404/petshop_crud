@@ -41,15 +41,20 @@ public class Main {
         //animalDAO.alterar(1, "miguel", "cavalo", "lobato", 12, 1);
 
         //clienteDAO.buscar(3);
+        //animalDAO.buscar(1);
+
         //clienteDAO.buscar("12345678911");
+
         //List<Cliente> buscarClienteNomes = clienteDAO.buscarPorNome("joão");
         //buscarClienteNomes.forEach(nomeCliente -> System.out.println(nomeCliente));
+
+
 
         //clienteDAO.deletar(6);
         //clienteDAO.deletar("12345678910");
 
-        List<Animal> listaTodosAnimais = animalDAO.listar();
-        listaTodosAnimais.forEach(todosAnimais -> System.out.println(todosAnimais));
+        //List<Animal> listaTodosAnimais = animalDAO.listar();
+        //listaTodosAnimais.forEach(todosAnimais -> System.out.println(todosAnimais));
 
         System.out.println("\n");
 
