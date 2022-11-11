@@ -53,10 +53,13 @@ public class Main {
 
 
         //clienteDAO.deletar(6);
+        animalDAO.deletar(7);
+
         //clienteDAO.deletar("12345678910");
 
-        //List<Animal> listaTodosAnimais = animalDAO.listar();
-        //listaTodosAnimais.forEach(todosAnimais -> System.out.println(todosAnimais));
+
+        List<Animal> listaTodosAnimais = animalDAO.listar();
+        listaTodosAnimais.forEach(todosAnimais -> System.out.println(todosAnimais));
 
         System.out.println("\n");
 

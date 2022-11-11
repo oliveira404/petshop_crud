@@ -135,6 +135,16 @@ public class AnimalDAO {
         return listaNomesAnimais;
     }
 
+    public void deletar(Integer id) throws SQLException{
+        String sql = "DELETE FROM tbanimal WHERE id = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            connection.rollback();
+            throw new RuntimeException(e);
+        }
+    }
 
 
 }
