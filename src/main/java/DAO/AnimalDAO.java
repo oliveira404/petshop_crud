@@ -111,6 +111,30 @@ public class AnimalDAO {
 
     public List<Animal> buscarAnimalNome (String nome){
         List<Animal> listaNomesAnimais = new ArrayList<Animal>();
+        String sql = "SELECT * FROM tbanimal WHERE nome = ?";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1, nome);
+            preparedStatement.execute();
 
+            try(ResultSet resultSet = preparedStatement.getResultSet()){
+                while (resultSet.next()) {
+                    Animal animal = new Animal(
+                            resultSet.getInt(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getInt(5),
+                            resultSet.getInt(6)
+                    );
+                    listaNomesAnimais.add(animal);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaNomesAnimais;
     }
+
+
+
 }

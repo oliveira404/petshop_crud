@@ -31,7 +31,7 @@ public class Main {
         animal.setAnimal("Peixe");
         animal.setRaca("Golden Fish");
         animal.setIdade(1);
-        animal.setFkCliente(2);
+        animal.setFkCliente(1);
 
 
         //clienteDAO.salvar(cliente);
@@ -47,6 +47,8 @@ public class Main {
 
         //List<Cliente> buscarClienteNomes = clienteDAO.buscarPorNome("joão");
         //buscarClienteNomes.forEach(nomeCliente -> System.out.println(nomeCliente));
+        //List<Animal> buscarAnimalNomes = animalDAO.buscarAnimalNome("tumtum");
+        //buscarAnimalNomes.forEach(nomeAnimal -> System.out.println(nomeAnimal));
 
 
 
