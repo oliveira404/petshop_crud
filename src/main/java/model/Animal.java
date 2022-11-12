@@ -22,6 +22,9 @@ public class Animal {
 
     }
 
+    public Animal(String string, String string1, int anInt) {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -72,6 +75,7 @@ public class Animal {
 
     @Override
     public String toString() {
+        System.out.println("---------------------------------------------------------------------------------------------------------------");
         return "ID: " + id + " NOME: " + nome + " ANIMAL " + animal + " RAÇA " + raca + " IDADE: " + idade + " ID_CLIENTE: " + fkCliente;
     }
 }

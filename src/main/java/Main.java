@@ -31,30 +31,32 @@ public class Main {
         animal.setAnimal("Peixe");
         animal.setRaca("Golden Fish");
         animal.setIdade(1);
-        animal.setFkCliente(1);
+        animal.setFkCliente(4);
 
 
         //clienteDAO.salvar(cliente);
         //animalDAO.salvar(animal);
 
-        //clienteDAO.alterar(6, "Carlinho", "Sacana", "12345678912", "Rua berlim", "78457802144");
+        //clienteDAO.alterar(1, "Carlinho", "Sacana", "12345678910", "Rua berlim", "78457802144");
         //animalDAO.alterar(1, "miguel", "cavalo", "lobato", 12, 1);
 
-        //clienteDAO.buscar(3);
-        //animalDAO.buscar(1);
 
-        //clienteDAO.buscar("12345678911");
+        //clienteDAO.buscar(3);
+        //animalDAO.buscar(2);
+
+        //clienteDAO.buscar("12345678912");
 
         //List<Cliente> buscarClienteNomes = clienteDAO.buscarPorNome("joão");
         //buscarClienteNomes.forEach(nomeCliente -> System.out.println(nomeCliente));
-        //List<Animal> buscarAnimalNomes = animalDAO.buscarAnimalNome("tumtum");
+        //List<Animal> buscarAnimalNomes = animalDAO.buscarAnimalNome("sirius");
         //buscarAnimalNomes.forEach(nomeAnimal -> System.out.println(nomeAnimal));
 
 
+        //animalDAO.deletar(5);
+        //clienteDAO.deletar(3);
 
-        //clienteDAO.deletar(6);
-        animalDAO.deletar(7);
 
+        //para apagar o usuario, ele não pode ter vinculado nenhum animal.
         //clienteDAO.deletar("12345678910");
 
 

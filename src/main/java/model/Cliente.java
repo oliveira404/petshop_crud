@@ -23,7 +23,8 @@ public class Cliente {
 
     public Cliente (){}
 
-
+    public Cliente(String string, String string1, String string2, String string3) {
+    }
 
 
     public Integer getId() {
@@ -76,6 +77,8 @@ public class Cliente {
 
     @Override
     public String toString() {
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
         return "ID: " + id + "\tNOME: " + nome + "\tSOBRENOME: " + sobrenome + "\tCPF: " + cpf + "\tENDERECO: " + endereco + "\tTELEFONE: " + telefone;
+
     }
 }
