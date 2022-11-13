@@ -15,6 +15,7 @@
 * [Técnicas e tecnologias utilizadas](#técnicas-e-tecnologias-utilizadas)
 * [Acesso ao Projeto](#acesso-ao-projeto)
 * [Abrir e rodar o projeto](#abrir-e-rodar-o-projeto)
+* [Extras](#extras)
 
 
 <br>
@@ -225,3 +226,22 @@ INSERT INTO tbanimal(
 - Após abrir o projeto vá na classe `ConnectionFactory` e siga os passos a passos para fazer sua conexão corretamente passando suas credenciais do seu banco.
 <img src="https://i.imgur.com/0IKl0Zj.gif">
 3. Com tudo feito, você pode abrir a classe `Main` e lidar com os métodos disponíveis.
+
+<br>
+
+## **Extras**
+O projeto conta com relacionamento de tabelas caso lhe interesse você testar e criar modificações do mesmo.
+```sql
+SELECT animal.nome, animal, raca, idade, cli.nome AS Dono, cli.id 
+FROM tbanimal AS animal 
+INNER JOIN tbcliente AS cli 
+ON animal.fk_cliente = cli.id WHERE cli.id = 1;
+
+
+SELECT c.nome, c.sobrenome, c.cpf, c.telefone, a.animal, a.nome, a.fk_cliente 
+FROM tbcliente 
+AS c 
+INNER JOIN tbanimal 
+AS a 
+ON c.id = a.fk_cliente;
+```
